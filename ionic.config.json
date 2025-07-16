@@ -1,0 +1,7 @@
+{
+  "name": "mamosureapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
