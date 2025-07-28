@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Items</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="items-content">
+
+  <!-- Restaurant Info -->
+  <ion-grid *ngIf="data?.name" class="restaurant-info">
+    <ion-row class="ion-padding-horizontal">
+      <ion-label>
+        <h1>{{ data?.name }}</h1>
+        <ion-text>
+          <p>{{ data?.address }}</p>
+        </ion-text>
+      </ion-label>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Item List -->
+  <ion-list lines="none" class="product-list">
+    <ion-item *ngFor="let item of items; let i = index" class="product-card" detail="false">
+      <div class="item-container">
+
+        <!-- Full Image -->
+        <img [src]="item?.cover || 'assets/imgs/default.jpg'" class="full-img" />
+
+        <!-- Details -->
+        <div class="details">
+          <h2 class="item-name">{{ item?.name }}</h2>
+          <p class="item-desc">{{ item?.desc }}</p>
+
+          <ion-text color="dark">
+            <p class="item-price">Price<br>Rs. {{ item?.price | number: '1.0-2' }}</p>
+          </ion-text>
+
+          <p class="item-size">
+            Size<br>
+            <span class="sizes">100ml, 200ml, 300 ml</span>
+          </p>
+
+          <!-- Quantity Buttons -->
+          <div *ngIf="!item?.quantity || item?.quantity <= 0" (click)="quantityPlus(item, i)" class="add-cart-btn">
+            <ion-button expand="block" color="danger">Add To Cart</ion-button>
+          </div>
+
+          <div *ngIf="item?.quantity > 0" class="quantity-controls">
+            <ion-icon name="remove-outline" color="success" (click)="quantityMinus(item, i)"></ion-icon>
+            <ion-text class="ion-padding-horizontal" color="success">{{ item?.quantity }}</ion-text>
+            <ion-icon name="add-outline" color="success" (click)="quantityPlus(item, i)"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<!-- Footer Cart Summary -->
+<ion-footer *ngIf="cartData?.totalItem > 0" class="footer-cart">
+  <ion-toolbar color="light" class="cart-summary">
+    <ion-label>
+      <h4>{{ cartData?.totalItem }} Item<span *ngIf="cartData?.totalItem > 1">s</span> | ₹{{ cartData?.totalPrice }}</h4>
+      <ion-text color="medium">
+        <p>Extra charges may apply</p>
+      </ion-text>
+    </ion-label>
+    <ion-button slot="end" fill="solid" color="danger" (click)="viewCart()" class="view-cart-btn">
+      <ion-icon slot="end" name="basket-outline"></ion-icon>
+      View Cart
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

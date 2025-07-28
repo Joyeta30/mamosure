@@ -1,0 +1,120 @@
+ion-header{
+    font-size: 1rem;
+}
+// swiper-container {
+//   width: 100%;
+//   height: 250px; // adjust based on your design
+//   margin-top: 16px;
+// }
+
+// swiper-slide {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   border-radius: 10px;
+//   overflow: hidden;
+//   background: #f4f4f4;
+//   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+// }
+
+// swiper-slide img {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+//   border-radius: 10px;
+// }
+// .product-grid {
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr);
+//   gap: 12px;
+//   padding: 16px;
+// }
+
+// .product-card {
+//   position: relative;
+//   background: #fff;
+//   border-radius: 10px;
+//   padding: 10px;
+//   text-align: center;
+//   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+// }
+
+// .product-card img {
+//   width: 100%;
+//   height: auto;
+//   object-fit: contain;
+//   border-radius: 6px;
+// }
+
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #e10f0c;
+  font-size: 18px;
+}
+// ion-item{
+//     font-size:0.8rem;
+//     ion-thumbnail{
+//         height: 16vh;
+//         width: 46vw;
+//         img{
+//             border-radius: 5px;
+//             height: 100%;
+//             width: 100%;
+//         }
+       
+//     }
+//      h4{
+//             font-size: 1rem;
+//             font-weight: 900;
+//         }
+// }
+// .distance{
+//     font-size: 0.8rem;
+//     padding-top: 0.2vh;
+// }
+// .pStyle{
+//     padding-bottom: 0.5vh;
+//     font-size: 0.82rem !important;
+// }
+ion-item-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 0 12px;
+}
+
+.custom-section-header h4 {
+  margin-bottom: 4px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.custom-section-header p {
+  margin-bottom: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.filter-buttons button {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: none;
+  background-color: #eee;
+  color: #333;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.filter-buttons button.active {
+  background-color: #db0a18;
+  color: #fff;
+}
+

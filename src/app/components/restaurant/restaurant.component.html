@@ -1,0 +1,18 @@
+<ion-card class="product-card">
+  <div class="image-wrapper">
+    <img [src]="restaurant?.cover ? restaurant.cover : 'assets/image/img1.jpg'" />
+    <!-- <ion-icon name="heart-outline" class="heart-icon"></ion-icon> -->
+  </div>
+
+  <ion-card-content>
+    <h3>{{ restaurant?.name }}</h3>
+    <p>₹{{ restaurant?.price }}.00</p>
+    <p class="subtext">{{ getCuisine(restaurant?.cuisines) }}</p>
+    <div class="rating-row">
+      <ion-icon name="star"></ion-icon>
+      <span>{{ restaurant?.rating }}</span> · 
+      <span>{{ restaurant?.delivery_time }} min</span> · 
+      <span *ngIf="restaurant?.distance">{{ restaurant?.distance | number: '0.0-1' }} km</span>
+    </div>
+  </ion-card-content>
+</ion-card>
