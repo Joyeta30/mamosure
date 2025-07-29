@@ -26,10 +26,10 @@
     <ion-item *ngFor="let item of items; let i = index" class="product-card" detail="false">
       <div class="item-container">
 
-        <!-- Full Image -->
+        <!-- Product Image -->
         <img [src]="item?.cover || 'assets/imgs/default.jpg'" class="full-img" />
 
-        <!-- Details -->
+        <!-- Product Details -->
         <div class="details">
           <h2 class="item-name">{{ item?.name }}</h2>
           <p class="item-desc">{{ item?.desc }}</p>
@@ -40,8 +40,19 @@
 
           <p class="item-size">
             Size<br>
-            <span class="sizes">100ml, 200ml, 300 ml</span>
+            <span class="sizes">{{ item?.size || '100ml, 200ml, 300 ml' }}</span>
           </p>
+
+          <!-- New: Product Details Section -->
+          <div class="product-detail-section">
+            <h4>Details</h4>
+            <ul>
+              <li>Herbal supplement for breast health</li>
+              <li>Supports immunity in women 18+</li>
+              <li>100% natural ingredients</li>
+              <li>Available in 3 sizes</li>
+            </ul>
+          </div>
 
           <!-- Quantity Buttons -->
           <div *ngIf="!item?.quantity || item?.quantity <= 0" (click)="quantityPlus(item, i)" class="add-cart-btn">
@@ -57,7 +68,9 @@
       </div>
     </ion-item>
   </ion-list>
+<br>
 </ion-content>
+
 
 <!-- Footer Cart Summary -->
 <ion-footer *ngIf="cartData?.totalItem > 0" class="footer-cart">

@@ -9,6 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RestaurantComponent  implements OnInit {
 
   @Input() restaurant: any;
+  @Input() smallImage: boolean = false;
+
 
   constructor() { }
 
